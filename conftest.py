@@ -1,22 +1,30 @@
 from selenium import webdriver
 import pytest
 from selenium.webdriver.chrome.options import Options
-from pages.alert_prompt_box_page import AlertPromptBoxPage
-from pages.alert_comfirmation_box_page import AlertConfirmationBoxPage
-from pages.checkbox_multiple_page import CheckboxesPage
-from pages.disabled_button_page import DisabledButtonPage
-from pages.input_text_page import InputTextPage
-from pages.simple_button_page import SimpleButtonPage
-from pages.alert_box_page import AlertBoxPage
-from pages.select_page import SelectPage
-from pages.select_multiple_page import SelectMultiple
+from pages.alerts.alert_prompt_box_page import AlertPromptBoxPage
+from pages.alerts.alert_comfirmation_box_page import AlertConfirmationBoxPage
+from pages.checkboxes.checkbox_multiple_page import CheckboxesPage
+from pages.checkboxes.single_checkbox_page import SingleCheckboxPage
+from pages.buttons.simple_button_page import SimpleButtonPage
+from pages.buttons.disabled_button_page import DisabledButtonPage
+from pages.buttons.looks_like_a_button_page import LooksLikeAButtonPage
+from pages.inputs.input_text_page import InputTextPage
+from pages.inputs.input_email_page import InputEmailPage
+from pages.inputs.input_password_page import InputPasswordPage
+
+from pages.alerts.alert_box_page import AlertBoxPage
+from pages.selects.select_single_page import SelectSinglePage
+from pages.selects.select_multiple_page import SelectMultiple
+from pages.text_areas.text_area_single_page import TextAreaSinglePage
+from pages.text_areas.text_area_multiple_page import TextAreasMultiplePage
+from pages.drag_and_drop.drag_and_drop_boxes_page import DragAndDropBoxesPage
+from pages.drag_and_drop.drag_and_drop_image_page import DragAndDropImagePage
 
 
-@pytest.fixture()
+@pytest.fixture(scope="function")
 def browser():
     options = Options()
     options.add_argument("--lang=en-US")
-
     chrome_browser = webdriver.Chrome(options=options)
     chrome_browser.maximize_window()
     yield chrome_browser
@@ -27,12 +35,29 @@ def simple_button_page(browser):
     return SimpleButtonPage(browser)
 
 @pytest.fixture()
+def looks_like_button_page(browser):
+    return LooksLikeAButtonPage(browser)
+
+@pytest.fixture()
 def disabled_button_page(browser):
     return DisabledButtonPage(browser)
 
 @pytest.fixture()
 def input_text_page(browser):
     return InputTextPage(browser)
+
+@pytest.fixture()
+def input_email_page(browser):
+    return InputEmailPage(browser)
+
+@pytest.fixture()
+def input_password_page(browser):
+    return InputPasswordPage(browser)
+
+@pytest.fixture()
+def checkbox_single_page(browser):
+    return SingleCheckboxPage(browser)
+
 
 @pytest.fixture()
 def checkboxes_page(browser):
@@ -53,9 +78,27 @@ def alert_prompt_page(browser):
     return AlertPromptBoxPage(browser)
 
 @pytest.fixture()
-def select_page(browser):
-    return SelectPage(browser)
+def select_single_page(browser):
+    return SelectSinglePage(browser)
 
 @pytest.fixture()
 def select_multiple_page(browser):
     return SelectMultiple(browser)
+
+
+@pytest.fixture()
+def text_area_single_page(browser):
+    return TextAreaSinglePage(browser)
+
+
+@pytest.fixture()
+def text_areas_multiple_page(browser):
+    return TextAreasMultiplePage(browser)
+
+@pytest.fixture()
+def drag_and_drop_boxes_page(browser):
+    return DragAndDropBoxesPage(browser)
+
+@pytest.fixture()
+def drag_and_drop_image_page(browser):
+    return DragAndDropImagePage(browser)

@@ -1,4 +1,4 @@
-from pages.alert_base_page import AlertBasePage
+from pages.alerts.alert_base_page import AlertBasePage
 
 
 class AlertPromptBoxPage(AlertBasePage):
