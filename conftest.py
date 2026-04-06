@@ -19,6 +19,10 @@ from pages.text_areas.text_area_single_page import TextAreaSinglePage
 from pages.text_areas.text_area_multiple_page import TextAreasMultiplePage
 from pages.drag_and_drop.drag_and_drop_boxes_page import DragAndDropBoxesPage
 from pages.drag_and_drop.drag_and_drop_image_page import DragAndDropImagePage
+from pages.new_tabs.new_tab_with_button_page import NewTabWithButtonPage
+from pages.new_tabs.new_tab_with_link_page import NewTabLinkPage
+from pages.popups.popup_modal_page import ModalPopupPage
+from pages.popups.popup_iframe_page import IframePopupPage
 
 
 @pytest.fixture(scope="function")
@@ -102,3 +106,20 @@ def drag_and_drop_boxes_page(browser):
 @pytest.fixture()
 def drag_and_drop_image_page(browser):
     return DragAndDropImagePage(browser)
+
+
+@pytest.fixture()
+def new_tab_with_button_page(browser):
+    return NewTabWithButtonPage(browser)
+
+@pytest.fixture()
+def new_tab_with_link_page(browser):
+    return NewTabLinkPage(browser)
+
+@pytest.fixture()
+def popup_modal_page(browser):
+    return ModalPopupPage(browser)
+
+@pytest.fixture()
+def popup_iframe_page(browser):
+    return IframePopupPage(browser)

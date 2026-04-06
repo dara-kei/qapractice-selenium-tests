@@ -1,3 +1,4 @@
+from selenium.common import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -17,7 +18,11 @@ class BasePage:
 
 
     def find(self, locator, timeout=10):
-        return WebDriverWait(self.browser, timeout).until(
-            EC.visibility_of_element_located(locator)
-        )
+        try:
+            return WebDriverWait(self.browser, timeout).until(
+                EC.visibility_of_element_located(locator)
+            )
+        except NoSuchElementException:
+            print("Element not found on page")
+
 
