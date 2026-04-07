@@ -11,7 +11,7 @@ Tested various UI components, including:
 - Buttons
 - Pop-ups and Alerts
 - Other interactive elements
-- 
+  
 Tech Stack:
 - Python
 - Selenium WebDriver
