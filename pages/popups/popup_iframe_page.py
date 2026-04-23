@@ -16,20 +16,6 @@ class IframePopupPage(BasePage):
     IFRAME_CLOSE_BUTTON = (By.CSS_SELECTOR, ".modal-footer button[type='button']")
     IFRAME_CHECK_BUTTON = (By.CSS_SELECTOR, ".modal-footer button[type='submit']")
 
-    # def __init__(self, page: Page):
-    #     super().__init__(page)
-    #     self.button_open_popup = page.locator("#content > button")
-    #     self.input_form = page.locator("#id_text_from_iframe")
-    #     self.button_submit_input_form = page.locator("#submit-id-submit")
-    #     self.result = page.locator("#check-result")
-    #
-    #     self.popup_title = page.frame_locator("iframe.embed-responsive-item").locator("h1")
-    #     self.popup_text_to_copy = page.frame_locator("iframe.embed-responsive-item").locator("#text-to-copy")
-    #
-    #     self.popup_buttons = page.locator(".modal-footer button")
-    #     self.popup_close_button = page.locator(".modal-footer button[type='button']")
-    #     self.popup_check_button = page.locator(".modal-footer button[type='submit']")
-
     def get_button_open_iframe_name(self):
         return self.find(self.BUTTON_OPEN_IFRAME).text
 
